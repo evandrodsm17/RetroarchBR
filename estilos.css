@@ -1,332 +1,502 @@
-*{
+/* Importação de Fontes: Orbitron (Títulos) e Roboto Mono (Corpo) */
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400;700&family=Orbitron:wght@500;700&display=swap');
+
+/* Variáveis de Cores: Tema Dark Cyber/Retro */
+:root {
+    --bg-color: #0d1117; /* GitHub Dark */
+    --surface-color: #161b22; /* Superfície de Cards/Secundária */
+    --accent-color: #00ff7f; /* Verde Neon (Destacque Principal) */
+    --text-color: #ffffff;
+    --secondary-text: #8b949e; /* Cinza Suave */
+    --shadow-color: rgba(0, 255, 127, 0.2); /* Sombra Neon */
+    --error-color: #db4437; /* Vermelho/Google Drive */
+}
+
+/* Base Geral */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Roboto Mono', monospace;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    line-height: 1.6;
+    scroll-behavior: smooth;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+a {
+    color: var(--accent-color);
     text-decoration: none;
+    transition: color 0.3s ease;
 }
 
-@import url('https://fonts.googleapis.com/css2?family=Jersey+15&family=PT+Sans+Narrow:wght@400;700&family=Pixelify+Sans:wght@400..700&display=swap');
+/* ---------------------------------- */
+/* Cabeçalho e Navegação */
+/* ---------------------------------- */
 
-
-body{
-    font-family: "PT Sans Narrow", sans-serif;
-    background: linear-gradient(to right, var(--roxo), var(--rosa));
+header {
+    background-color: var(--surface-color);
+    padding: 15px 0;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
 }
 
-header{
+.header-content {
     display: flex;
-    flex-direction: column;
-    border-radius: 4px;
-    margin: 20px;
-    background-color: var(--branco);
-    text-align: center;
-    border: 1px solid var(--gelo);
+    justify-content: space-between;
+    align-items: center;
 }
 
-header img{
-    width: 380px;
-    height: auto;
-    margin: 10px;
-    align-self: center;
+/* Logo - Estilo Retro */
+.logo-text {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 2em;
+    font-weight: 700;
+    color: var(--accent-color);
+    text-shadow: 0 0 5px var(--accent-color);
+    letter-spacing: 3px;
+    transition: transform 0.3s;
 }
 
-header nav{
-    height: fit-content;
-    text-align: center;
-    background-color: var(--roxo);
-    border-radius: 4px;
-    height: fit-content;
+.logo-text:hover {
+    transform: scale(1.05);
 }
 
-header nav ul{
+.main-nav ul {
+    list-style: none;
     display: flex;
-    justify-content: space-evenly;
-    height: 20px;
+    gap: 30px;
 }
 
-header nav ul li{
-    list-style-type: none;
-    align-self: center;
-    color: var(--gelo);
-    font-size: 18px;
-    padding: 16px;
-    width: 200px;
-    height: 20px;
+.main-nav a {
+    color: var(--secondary-text);
+    font-size: 1em;
+    font-weight: 700;
+    padding: 5px 0;
+    position: relative;
+    transition: color 0.3s;
 }
 
-header nav ul li a{
-    color: var(--gelo);
-    font-weight: 600;
+.main-nav a:hover {
+    color: var(--accent-color);
 }
 
-header nav ul li:hover{
-    background-color: var(--rosa);
-    cursor: pointer;
-    transition: 200ms ease-in;
+.main-nav a::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: -5px;
+    left: 0;
+    background-color: var(--accent-color);
+    transition: width 0.3s ease-in-out;
 }
 
-main{
-    display: flex;
-    flex-direction: column;
-    border-radius: 4px;
-    justify-content: center;
-    background-color: var(--branco);
-    margin: 20px;
-    padding: 16px;
-    gap: 10px;
+.main-nav a:hover::after {
+    width: 100%;
 }
 
-section h2{
-    text-align: center;
-}
 
-.about{
-    display: flex;
-    flex-wrap: wrap;
-    border-radius: 4px;
-    background-color: var(--roxo);
-    justify-content: space-around;
-    height: auto;
-    padding: 40px;
-    gap: 20px;
-}
+/* ---------------------------------- */
+/* Seção Hero/Sobre */
+/* ---------------------------------- */
 
-.about-text{
-    width: 500px;
-    height: 260px;
-    font-size: 20px;
-    border: 1px solid;
-    padding: 30px;
-    background-color: var(--gelo);
-    color: var(--roxo);
-    border-radius: 8px 0px 8px 0px;
-    text-align: center  ;
-}
-
-.about-text p{
+.hero {
+    background: var(--bg-color);
+    padding: 80px 0;
     text-align: left;
 }
 
-.about-video img{
-    width: 580px;
-    height: 300px;
-    border-radius: 8px 0px 8px 0px;
-    border: 10px solid var(--gelo);
-    max-width: 100%;
+.about-grid {
+    display: grid;
+    grid-template-columns: 1.2fr 0.8fr;
+    gap: 50px;
+    align-items: center;
 }
 
-.portateis-list{
-    display: flex;
-    flex-wrap: wrap;
-    border-radius: 4px;
-    background-color: var(--rosa);
-    justify-content: center;
-    height: fit-content;
-    padding: 40px;
-    gap: 10px;
+.about-text h1 {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 3em;
+    margin-bottom: 10px;
+    color: var(--text-color);
+    text-shadow: 0 0 10px var(--shadow-color);
 }
 
-.portateis-item{
-    width: fit-content;
-    height:fit-content;
-    background-color: var(--branco);
+.about-text .subtitle {
+    font-size: 1.1em;
+    color: var(--secondary-text);
+    margin-bottom: 40px;
+}
+
+.about-video-placeholder img {
+    width: 100%;
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6), 0 0 15px var(--shadow-color);
+    transition: transform 0.5s;
+}
+
+.about-video-placeholder img:hover {
+    transform: scale(1.02);
+}
+
+/* Botão CTA (Call to Action) */
+.cta-button {
+    display: inline-flex;
+    align-items: center;
+    background-color: var(--accent-color);
+    color: var(--bg-color);
+    padding: 15px 30px;
+    border-radius: 50px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: background-color 0.3s, transform 0.2s, box-shadow 0.3s;
+    box-shadow: 0 8px 20px var(--shadow-color);
+}
+
+.cta-button:hover {
+    background-color: #00e673;
+    transform: translateY(-3px);
+    box-shadow: 0 12px 25px var(--shadow-color);
+}
+
+.cta-button svg {
+    width: 20px;
+    height: 20px;
+    margin-right: 10px;
+    color: var(--bg-color);
+}
+
+
+/* ---------------------------------- */
+/* Seções de Dados (Portáteis e ROMs) */
+/* ---------------------------------- */
+
+.data-section {
+    padding: 60px 0;
+}
+
+.data-section h2 {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 2.5em;
     text-align: center;
-    padding: 10px;
-    border-radius: 8px 0px 8px 0px;
+    color: var(--accent-color);
+    margin-bottom: 50px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+/* Estrutura de Grid Comum para ambas as listas */
+.portateis-list, .roms-list {
+    display: grid;
+    gap: 30px;
+}
+
+/* ---------------------------------- */
+/* Estilo dos Cards de Portáteis - EFEITO FLIP CARD */
+/* ---------------------------------- */
+
+.portateis-list {
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+}
+
+/* 1. CONTAINER BASE (Dimensões e Perspectiva) */
+.flip-container {
+    background-color: transparent;
+    min-height: 400px; /* Altura mínima para comportar a frente/verso */
+    border-radius: 10px;
+    perspective: 1000px; /* Cria o campo 3D para o efeito de giro */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+    transition: box-shadow 0.3s;
+}
+
+.flip-container:hover {
+    box-shadow: 0 15px 30px var(--shadow-color);
+}
+
+/* 2. O FLIPPER (Giro) */
+.flipper {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    transition: transform 0.6s;
+    transform-style: preserve-3d; /* Essencial para que os lados do card sejam 3D */
+}
+
+/* Estado de giro: Aplica a rotação no contêiner flipper */
+.flip-container.flipped .flipper {
+    transform: rotateY(180deg);
+}
+
+/* 3. FRENTE E VERSO (Lados do Card) */
+.portatil-card-front,
+.portatil-card-back {
+    background-color: var(--surface-color);
+    border: 1px solid rgba(0, 255, 127, 0.1);
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden; /* Faz o verso ficar invisível quando de frente */
+    border-radius: 10px;
+    padding: 20px;
+    text-align: center;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    align-items: center;
-    gap: 10px;
 }
 
-.portateis-item img{
-    width: 260px;
-    height: 200px;
-    border: 2px solid var(--gelo);
-    border-radius: 4px;
-    object-fit: contain;
+/* ESTILO DA FRENTE */
+.portatil-card-front {
+    z-index: 2;
+    transform: rotateY(0deg);
 }
 
-.portateis-item h3{
-    font-size: 18px;
+.portatil-card-front img {
+    width: 100%;
+    height: 180px; /* Altura mantida, mas dentro do card */
+    object-fit: cover;
+    border-radius: 5px;
+    margin-bottom: 15px;
+    border-bottom: 3px solid var(--accent-color);
 }
 
-.btn-review{
-    background-color: var(--roxo);
-    color: var(--branco);
-    border: none;
-    padding: 10px 20px;
-    border-radius: 4px;
+.portatil-card-front h3 {
+    font-family: 'Orbitron', sans-serif;
+    color: var(--text-color);
+    margin-bottom: 15px;
+}
+
+/* ESTILO DO VERSO */
+.portatil-card-back {
+    transform: rotateY(180deg); /* Começa rotacionado */
+    padding: 30px 20px;
+}
+
+.portatil-card-back h3 {
+    font-family: 'Orbitron', sans-serif;
+    color: var(--accent-color);
+    margin-bottom: 15px;
+    text-transform: uppercase;
+}
+
+.portatil-descricao {
+    color: var(--secondary-text);
+    font-size: 0.95em;
+    margin-bottom: 25px;
+    flex-grow: 1; /* Garante que a descrição ocupe o espaço */
+    text-align: left;
+}
+
+/* Botões de Giro */
+.btn-flip {
+    background: none;
+    border: 1px solid var(--accent-color);
+    color: var(--accent-color);
+    padding: 8px 15px;
+    border-radius: 5px;
     cursor: pointer;
-    width: 260px;
+    font-weight: 700;
+    transition: background-color 0.3s;
+    font-family: 'Roboto Mono', monospace;
+    font-size: 0.85em;
 }
 
-.btn-review:hover{
-    background-color: #6e07e4d3;
-    transition: 400ms ease-in;
+.btn-flip:hover {
+    background-color: var(--accent-color);
+    color: var(--bg-color);
 }
 
-.btn-review a{
-    color: var(--gelo);
+/* Botão "Voltar" (no verso) */
+.portatil-card-back .back-btn {
+    margin-top: 15px;
+    border-color: var(--secondary-text);
+    color: var(--secondary-text);
 }
 
-.roms-list{
-    display: flex;
-    flex-wrap: wrap;
-    border-radius: 4px;
-    background-color: var(--roxo);
-    justify-content: center;
-    height: fit-content;
-    padding: 40px;
-    gap: 10px;}
-
-.roms-list-item{
-   width: 350px;
-   height: 250px;
-   background-color: var(--branco);
-   border: 2px solid var(--roxo);
-   border-radius: 8px 0px 8px 0px;
-   display: flex;
-   flex-direction: column;
-   align-items: center;
-   gap: 10px;
-   padding: 10px;
-   color: var(--preto);
+.portatil-card-back .back-btn:hover {
+    background-color: var(--secondary-text);
+    color: var(--bg-color);
 }
 
-.roms-list-item img{
-    max-width: 100%;
-    height: 100px;
-    object-fit: contain;
+/* Adicionando compatibilidade com o botão desabilitado que já existia */
+.portatil-card-back .btn-review button[disabled] {
+    background-color: var(--secondary-text);
+    color: var(--bg-color);
+    cursor: not-allowed;
+    width: 100%;
+    padding: 10px;
+    border: none;
+    border-radius: 6px;
+    font-weight: 700;
 }
 
-.btn-area{
-    display: flex;
-    flex-direction: row;
-    gap: 10px;
-    justify-content: center;
+
+/* ---------------------------------- */
+/* Estilo dos Cards de ROMs */
+/* ---------------------------------- */
+
+.roms-list {
+    /* Mínimo de 250px para caber no máximo 4 por linha */
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); 
+    gap: 20px; 
     padding-top: 20px;
 }
 
-.mediafire{
-    background-color: #0196ed;
-    color: #fff;
-    padding: 5px;
-    width: 100px;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-}
-
-.mediafire:hover{
-    background-color: #176fae;
-    transition: 400ms ease-in;
-}
-
-.gdrive{
-    background-color: #05b10b;
-    color: #fff;
-    padding: 5px;
-    width: 100px;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-}
-
-.gdrive:hover{
-    background-color: #278b13;
-    transition: 400ms ease-in;
-}
-
-.mega{
-    background-color: #c10404;
-    color: #fff;
-    padding: 5px;
-    width: 100px;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-}
-
-.mega:hover{
-    background-color: #7e0d0d;
-    transition: 400ms ease-in;
-}
-
-footer{
-    color: var(--gelo);
+.roms-list .roms-list-item {
+    background-color: var(--surface-color);
+    border-radius: 10px;
+    padding: 20px 15px; 
     text-align: center;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+    transition: all 0.3s;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between; 
 }
 
-:root{
-    --roxo: #3f0680d3;
-    --rosa: #af228b;
-    --salmao: #fc707d;
-    --amarelo: #f9d29b;
-    --azul: #2ebddb;
-    --preto: #000000e8;
-    --gelo: #dfe1e1;
-    --branco: #fff;
+.roms-list .roms-list-item:hover {
+    transform: scale(1.05); 
+    border: 2px solid var(--accent-color);
+}
+
+.roms-list .roms-list-item h3 {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 1.3em; 
+    color: var(--accent-color);
+    margin-bottom: 25px; 
+    text-transform: uppercase;
+}
+
+.roms-list .btn-area {
+    display: flex;
+    flex-direction: column;
+    gap: 10px; 
+    margin-top: auto; 
+}
+
+.roms-list .btn-area a {
+    flex: 1;
+    width: 100%; 
+}
+
+.roms-list .btn-area button {
+    width: 100%; 
+    padding: 12px 10px; 
+    border: none;
+    border-radius: 4px;
+    font-weight: 700;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s;
+    font-family: 'Roboto Mono', monospace;
+    font-size: 0.9em;
+}
+
+/* Estilos de Botões de Download */
+.roms-list .btn-area .mediafire, 
+.roms-list .btn-area .mega {
+    background-color: var(--secondary-text);
+    color: var(--bg-color);
+    cursor: not-allowed;
+    opacity: 0.6;
+}
+
+.roms-list .btn-area .gdrive {
+    background-color: var(--error-color); 
+    color: var(--text-color);
+}
+
+.roms-list .btn-area .gdrive:not(:disabled):hover {
+    background-color: #a3322a;
+    transform: scale(1.02);
+}
+
+/* ---------------------------------- */
+/* Rodapé (Footer) */
+/* ---------------------------------- */
+
+footer {
+    background-color: var(--surface-color);
+    color: var(--secondary-text);
+    text-align: center;
+    padding: 25px 0;
+    border-top: 2px solid rgba(0, 255, 127, 0.1);
+}
+
+footer p:last-child {
+    margin-top: 5px;
+    font-size: 0.9em;
+    color: var(--accent-color);
 }
 
 
-@media screen and (max-width: 600px){
-    header img{
-        width: 200px;
-        height: auto;
-        margin: 10px;
-        align-self: center;
+/* ---------------------------------- */
+/* Responsividade */
+/* ---------------------------------- */
+
+@media (max-width: 900px) {
+    .about-grid {
+        grid-template-columns: 1fr;
+        gap: 30px;
+        text-align: center;
+    }
+    
+    .about-text h1 {
+        font-size: 2.5em;
     }
 
-    header nav ul li{
-        list-style-type: none;
-        align-self: center;
-        color: var(--gelo);
-        font-size: 14px;
-        padding: 16px;
-        width: auto;
-        height: auto;
-    }
-
-    .about{
+    .cta-button {
+        width: 100%;
         justify-content: center;
     }
 
-    .about-text{
-        max-width: 100%;
-        height: auto;
-        font-size: 12px;
-        border: 1px solid;
-        padding: 10px;
-        background-color: var(--gelo);
-        color: var(--roxo);
-        border-radius: 8px 0px 8px 0px;
-        text-align: center  ;
+    .portateis-list, .roms-list {
+        /* Ajuste para telas médias: 3 colunas */
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    }
+}
+
+@media (max-width: 600px) {
+    
+    .header-content {
+        flex-direction: column;
     }
 
-    .roms-list-item{
-        max-width: 100%;
-        height: auto;
-        background-color: var(--branco);
-        border: 2px solid var(--roxo);
-        border-radius: 8px 0px 8px 0px;
-        display: flex;
+    .logo-text {
+        margin-bottom: 15px;
+    }
+
+    .main-nav ul {
+        gap: 15px;
+    }
+
+    .data-section h2 {
+        font-size: 2em;
+    }
+    
+    .portateis-list, .roms-list {
+        /* Garante 1 coluna em telas pequenas */
+        grid-template-columns: 1fr; 
+    }
+    
+    .roms-list .btn-area {
         flex-direction: column;
-        align-items: center;
         gap: 5px;
-        padding: 5px;
-        color: var(--preto);
-     }
-
-     .btn-area{
-        display: flex;
-        flex-direction: column;
-        gap: 8px;
-        justify-content: center;
-        padding: 20px;
     }
-
-    .btn-area button{
-        width: 120px;
-        max-width: 100%;
+    
+    .roms-list .btn-area button {
+        padding: 8px 5px;
+        font-size: 0.9em;
     }
-
 }
